@@ -13,12 +13,15 @@
     --primary: #2ecc71;
     --accent-blue: #3498db;
     --bg: #0b192e;
-    --light-bg: #172a45;
     --text-main: #e6f1ff;
     --text-dim: #8892b0;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background: var(--bg);
@@ -27,10 +30,12 @@ body {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
     padding: 0 2rem;
 }
+
+/* ================= HERO SECTION ================= */
 
 .hero {
     min-height: 100vh;
@@ -39,11 +44,11 @@ body {
 }
 
 .hero-content {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    width: 100%;
+    gap: 60px;
 }
 
 .hero-text {
@@ -71,13 +76,14 @@ body {
     margin-top: 20px;
     max-width: 600px;
     color: var(--text-dim);
+    line-height: 1.7;
 }
 
 .socials {
     margin-top: 30px;
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
 .socials a {
@@ -91,35 +97,50 @@ body {
     transform: translateY(-3px);
 }
 
+/* ================= IMAGE FRAME ================= */
+
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.hero-image img {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
+/* Green circular frame */
+.profile-ring {
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     border: 4px solid var(--primary);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;   /* 🔥 CLIPS IMAGE INSIDE CIRCLE */
+    box-shadow: 0 0 50px rgba(46, 204, 113, 0.35);
 }
 
-/* Mobile */
+/* Image inside frame */
+.profile-ring img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
     }
 
-    .hero-image img {
-        width: 220px;
-        height: 220px;
-    }
-
     .socials {
         justify-content: center;
+    }
+
+    .profile-ring {
+        width: 240px;
+        height: 240px;
     }
 }
 </style>
@@ -131,14 +152,16 @@ body {
     <section class="hero" data-aos="fade-up">
         <div class="hero-content">
 
+            <!-- LEFT TEXT -->
             <div class="hero-text">
                 <p>Hi, I am</p>
                 <h1>Nivedan KJ</h1>
                 <div class="tagline">Full Stack Developer</div>
 
                 <p class="bio">
-                    Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
-                    Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
+                    Passionate and hardworking Full Stack Developer with strong interest in building
+                    end-to-end web applications. Skilled in frontend and backend technologies with
+                    a focus on clean, scalable, and efficient code.
                 </p>
 
                 <div class="socials">
@@ -149,8 +172,12 @@ body {
                 </div>
             </div>
 
+            <!-- RIGHT IMAGE -->
             <div class="hero-image">
-                <img src="profile.jpg" alt="Nivedan KJ">
+                <div class="profile-ring">
+                    <!-- 🔴 CHANGE IMAGE NAME HERE -->
+                    <img src="profile.png" alt="Nivedan KJ">
+                </div>
             </div>
 
         </div>
