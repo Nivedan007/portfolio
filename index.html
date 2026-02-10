@@ -1,193 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivedan KJ | Full Stack Developer</title>
+    <meta charset="UTF-8">
+    <title>My Profile Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #003366;
+        }
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        header {
+            background-color: #0b5ed7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-<style>
-:root {
-    --primary: #2ecc71;
-    --accent-blue: #3498db;
-    --bg: #0b192e;
-    --text-main: #e6f1ff;
-    --text-dim: #8892b0;
-}
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f4f9ff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        .profile {
+            text-align: center;
+        }
 
-body {
-    background: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-}
+        .profile img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #0b5ed7;
+            object-fit: cover;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 2rem;
-}
+        h2 {
+            margin-top: 15px;
+        }
 
-/* ================= HERO SECTION ================= */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.hero-text p {
-    color: var(--primary);
-    font-family: monospace;
-    font-size: 1.1rem;
-}
-
-.hero-text h1 {
-    font-size: clamp(40px, 8vw, 80px);
-    margin: 10px 0;
-}
-
-.tagline {
-    font-size: clamp(28px, 5vw, 45px);
-    color: var(--accent-blue);
-    font-weight: 600;
-}
-
-.bio {
-    margin-top: 20px;
-    max-width: 600px;
-    color: var(--text-dim);
-    line-height: 1.7;
-}
-
-.socials {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.socials a {
-    color: var(--text-main);
-    font-size: 1.4rem;
-    transition: 0.3s;
-}
-
-.socials a:hover {
-    color: var(--primary);
-    transform: translateY(-3px);
-}
-
-/* ================= IMAGE FRAME ================= */
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Green circular frame */
-.profile-ring {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    border: 4px solid var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;   /* 🔥 CLIPS IMAGE INSIDE CIRCLE */
-    box-shadow: 0 0 50px rgba(46, 204, 113, 0.35);
-}
-
-/* Image inside frame */
-.profile-ring img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .socials {
-        justify-content: center;
-    }
-
-    .profile-ring {
-        width: 240px;
-        height: 240px;
-    }
-}
-</style>
+        footer {
+            margin-top: 40px;
+            background-color: #0b5ed7;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
 </head>
-
 <body>
 
+<header>
+    <h1>My Personal Website</h1>
+</header>
+
 <div class="container">
-    <section class="hero" data-aos="fade-up">
-        <div class="hero-content">
+    <div class="profile">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="Profile Photo">
+        <h2>Nivedan K J</h2>
+        <p>Student | Developer | Tech Enthusiast</p>
+    </div>
 
-            <!-- LEFT TEXT -->
-            <div class="hero-text">
-                <p>Hi, I am</p>
-                <h1>Nivedan KJ</h1>
-                <div class="tagline">Full Stack Developer</div>
-
-                <p class="bio">
-                    Passionate and hardworking Full Stack Developer with strong interest in building
-                    end-to-end web applications. Skilled in frontend and backend technologies with
-                    a focus on clean, scalable, and efficient code.
-                </p>
-
-                <div class="socials">
-                    <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <span style="color: var(--text-dim); font-size: 1rem;">7395863557</span>
-                </div>
-            </div>
-
-            <!-- RIGHT IMAGE -->
-            <div class="hero-image">
-                <div class="profile-ring">
-                    <!-- 🔴 CHANGE IMAGE NAME HERE -->
-                    <img src="profile.png" alt="Nivedan KJ">
-                </div>
-            </div>
-
-        </div>
-    </section>
+    <p>
+        Welcome to my website. This page is created using a single HTML file with
+        white and blue theme. The photo is embedded directly, so it will always load
+        correctly without any path issues.
+    </p>
 </div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init({ duration: 1000, once: true });
-</script>
+<footer>
+    © 2026 My Website
+</footer>
 
 </body>
 </html>
