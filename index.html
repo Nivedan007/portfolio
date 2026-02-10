@@ -1,231 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivedan KJ | Full Stack Engineer</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            /* Updated Color Palette: Green and Blue */
-            --primary: #2ecc71; /* Vibrant Emerald Green */
-            --accent-blue: #3498db; /* Bright Blue */
-            --bg: #0b192e; /* Deep Midnight Blue */
-            --light-bg: #172a45; /* Lighter Blue-Grey for cards */
-            --text-main: #e6f1ff;
-            --text-dim: #8892b0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivedan KJ | Full Stack Developer</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<style>
+:root {
+    --primary: #2ecc71;
+    --accent-blue: #3498db;
+    --bg: #0b192e;
+    --light-bg: #172a45;
+    --text-main: #e6f1ff;
+    --text-dim: #8892b0;
+}
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        section { padding: 100px 0; border-bottom: 1px solid rgba(52, 152, 219, 0.1); }
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+}
 
-        h2 { 
-            font-size: 2rem; 
-            color: var(--primary); 
-            margin-bottom: 40px; 
-            display: flex; 
-            align-items: center;
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+}
 
-        h2 i { color: var(--accent-blue); margin-right: 15px; }
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
 
-        h2::after {
-            content: "";
-            display: block;
-            width: 300px;
-            height: 1px;
-            background: var(--accent-blue);
-            margin-left: 20px;
-            opacity: 0.3;
-        }
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.hero-text {
+    flex: 1;
+}
 
-        .hero p { color: var(--primary); font-family: monospace; font-size: 1.2rem; }
-        .hero h1 { font-size: clamp(40px, 8vw, 80px); color: var(--text-main); margin: 10px 0; }
-        .hero .tagline { font-size: clamp(30px, 5vw, 50px); color: var(--accent-blue); font-weight: 600; }
-        .hero .bio { max-width: 600px; margin-top: 20px; font-size: 1.1rem; color: var(--text-dim); }
+.hero-text p {
+    color: var(--primary);
+    font-family: monospace;
+    font-size: 1.1rem;
+}
 
-        /* Social Links */
-        .socials { margin-top: 30px; display: flex; gap: 20px; }
-        .socials a { color: var(--text-main); font-size: 1.5rem; transition: 0.3s; }
-        .socials a:hover { color: var(--primary); transform: translateY(-3px); }
+.hero-text h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    margin: 10px 0;
+}
 
-        /* Card Styles */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.tagline {
+    font-size: clamp(28px, 5vw, 45px);
+    color: var(--accent-blue);
+    font-weight: 600;
+}
 
-        .card {
-            background: var(--light-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
+.bio {
+    margin-top: 20px;
+    max-width: 600px;
+    color: var(--text-dim);
+}
 
-        .card:hover { 
-            transform: translateY(-5px); 
-            border: 1px solid var(--primary);
-            box-shadow: 0 20px 30px -15px rgba(46, 204, 113, 0.2);
-        }
+.socials {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
-        .skill-group h4 { color: var(--accent-blue); margin-bottom: 10px; }
-        .tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { 
-            background: rgba(46, 204, 113, 0.1); 
-            color: var(--primary); 
-            padding: 5px 12px; 
-            border-radius: 4px; 
-            font-size: 0.85rem; 
-            border: 1px solid rgba(46, 204, 113, 0.2);
-        }
+.socials a {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    transition: 0.3s;
+}
 
-        ul { list-style: none; }
-        ul li::before {
-            content: "▹";
-            color: var(--primary);
-            margin-right: 10px;
-        }
+.socials a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
 
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            h2::after { width: 100px; }
-        }
-    </style>
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
     <section class="hero" data-aos="fade-up">
-        <p>Hi, I am</p>
-        <h1>Nivedan KJ</h1>
-        <div class="tagline">Full Stack Developer</div>
-        <p class="bio">
-            Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
-            Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
-        </p>
-        <div class="socials">
-            <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/YOUR_GITHUB_ID" target="_blank"><i class="fab fa-github"></i></a>
-            <span style="font-size: 1rem; color: var(--text-dim);">7395863557</span>
-        </div>
-    </section>
+        <div class="hero-content">
 
-    <section id="education" data-aos="fade-right">
-        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="card">
-            <h3 style="color: var(--primary)">B.E. Computer Science and Engineering</h3>
-            <p>KPR Institute of Engineering and Technology</p>
-            <p><strong>CGPA: 7.4</strong></p>
-        </div>
-    </section>
+            <div class="hero-text">
+                <p>Hi, I am</p>
+                <h1>Nivedan KJ</h1>
+                <div class="tagline">Full Stack Developer</div>
 
-    <section id="skills" data-aos="fade-left">
-        <h2><i class="fas fa-code"></i> Skills</h2>
-        <div class="grid">
-            <div class="skill-group">
-                <h4>Programming Languages</h4>
-                <div class="tags">
-                    <span class="tag">Java</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+                <p class="bio">
+                    Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
+                    Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
+                </p>
+
+                <div class="socials">
+                    <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <span style="color: var(--text-dim); font-size: 1rem;">7395863557</span>
                 </div>
             </div>
-            <div class="skill-group">
-                <h4>Frameworks & Libraries</h4>
-                <div class="tags">
-                    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Scikit-learn</span><span class="tag">NumPy</span><span class="tag">Pandas</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <h4>Databases</h4>
-                <div class="tags">
-                    <span class="tag">MySQL</span><span class="tag">MongoDB</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="experience" data-aos="fade-up">
-        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-        <div class="card">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <h3>Full Stack Developer Intern</h3>
-                <span style="color: var(--accent-blue)">09/2023 - Present</span>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Nivedan KJ">
             </div>
-            <p style="color: var(--primary); margin-bottom: 15px;">Cognifyz Technologies</p>
-            <ul>
-                <li>Developed responsive and interactive web applications.</li>
-                <li>Integrated frontend and backend components to deliver seamless user experiences.</li>
-                <li>Tech Stack: HTML, CSS, JavaScript.</li>
-            </ul>
-        </div>
-    </section>
 
-    <section id="projects" data-aos="zoom-in">
-        <h2><i class="fas fa-project-diagram"></i> Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 style="color: var(--primary)">Unmasking Misinformation Using AI</h3>
-                <ul>
-                    <li>Designed AI-driven system to identify and analyze fake news.</li>
-                    <li>Applied Machine Learning and NLP techniques for misinformation detection.</li>
-                    <li>Compared accuracy and efficiency of multiple AI-based models.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3 style="color: var(--primary)">WildGuard</h3>
-                <ul>
-                    <li>Built ML-powered agriculture safety system with real-time alerts for farmers.</li>
-                    <li>Utilized solar-powered automation with sound/light-based deterrents.</li>
-                    <li>Aimed to reduce crop damage and promote human-wildlife coexistence.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="organizations" data-aos="fade-up">
-        <h2><i class="fas fa-award"></i> Leadership & Awards</h2>
-        <div class="grid">
-            <div class="card">
-                <h4>Ignitrron Technical Club, KPRIET</h4>
-                <p><strong>Secretary</strong>: Led organization of 10+ campus-wide technical events and engaged 3000+ participants.</p>
-                <br>
-                <h4>IEEE Computer Society</h4>
-                <p><strong>Graphic Designer</strong>: Designed promotional posters and visual campaigns for DevSpark '25.</p>
-            </div>
-            <div class="card">
-                <h4>Achievements</h4>
-                <ul>
-                    <li>Smart India Hackathon: Cleared two rounds of internal hackathon.</li>
-                    <li>KPR Innovcense: Shortlisted among top 25 teams.</li>
-                    <li>Certificate: Practical Cyber Security for Practitioners.</li>
-                </ul>
-            </div>
         </div>
     </section>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true });
+AOS.init({ duration: 1000, once: true });
 </script>
 
 </body>
