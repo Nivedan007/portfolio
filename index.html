@@ -28,13 +28,17 @@
             overflow-x: hidden;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
 
         section { padding: 100px 0; border-bottom: 1px solid rgba(52, 152, 219, 0.1); }
 
         h1, h2 {
             font-family: 'Playfair Display', serif;
         }
+
+        .muted { color: var(--text-dim); }
+        .accent { color: var(--primary); }
+        .accent-secondary { color: var(--accent-blue); }
 
         h2 { 
             font-size: 2rem; 
@@ -67,10 +71,12 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 40px;
             align-items: center;
         }
+
+        .hero-text { max-width: 640px; }
 
         .hero-media {
             display: flex;
@@ -89,8 +95,8 @@
 
         .hero p { color: var(--primary); font-family: 'IBM Plex Sans', sans-serif; font-size: 1.1rem; letter-spacing: 0.3px; }
         .hero h1 { font-size: clamp(40px, 8vw, 80px); color: var(--text-main); margin: 10px 0; }
-        .hero .tagline { font-size: clamp(28px, 4.5vw, 46px); color: var(--accent-blue); font-weight: 600; }
-        .hero .bio { max-width: 600px; margin-top: 20px; font-size: 1.1rem; color: var(--text-dim); }
+        .hero .tagline { font-size: clamp(28px, 4.5vw, 46px); color: var(--accent-blue); font-weight: 600; letter-spacing: 0.2px; }
+        .hero .bio { max-width: 600px; margin-top: 20px; font-size: 1.05rem; color: var(--text-dim); }
 
         /* Social Links */
         .socials { margin-top: 30px; display: flex; gap: 20px; }
@@ -108,6 +114,19 @@
             transition: 0.3s;
             border: 1px solid transparent;
         }
+
+        .card h3 { margin-bottom: 6px; font-size: 1.2rem; }
+        .card p { margin-top: 6px; }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .meta-date { color: var(--accent-blue); font-size: 0.95rem; }
 
         .card:hover { 
             transform: translateY(-5px); 
@@ -155,19 +174,19 @@
 <div class="container">
     <section class="hero" data-aos="fade-up">
         <div class="hero-content">
-            <div>
+            <div class="hero-text">
                 <p>Hi, I am</p>
                 <h1>Nivedan KJ</h1>
-                <div class="tagline">Full Stack Developer</div>
+                <div class="tagline">Full Stack Engineer</div>
                 <p class="bio">
-                    Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
-                    Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
+                    Full stack engineer focused on building performant, accessible web applications.
+                    Comfortable across UI, APIs, and data layers with an emphasis on clean, maintainable code.
                 </p>
                 <div class="socials">
                     <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/nivedan-k-j-625719306" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Nivedan007" target="_blank"><i class="fab fa-github"></i></a>
-                    <span style="font-size: 1rem; color: var(--text-dim);">7395863557</span>
+                    <span class="muted" style="font-size: 1rem;">7395863557</span>
                 </div>
             </div>
             <div class="hero-media">
@@ -179,9 +198,9 @@
     <section id="education" data-aos="fade-right">
         <h2><i class="fas fa-graduation-cap"></i> Education</h2>
         <div class="card">
-            <h3 style="color: var(--primary)">B.E. Computer Science and Engineering</h3>
+            <h3 class="accent">B.E. in Computer Science and Engineering</h3>
             <p>KPR Institute of Engineering and Technology</p>
-            <p><strong>CGPA: 7.4</strong></p>
+            <p><strong>CGPA: 7.4/10</strong></p>
         </div>
     </section>
 
@@ -212,14 +231,14 @@
     <section id="experience" data-aos="fade-up">
         <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
         <div class="card">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div class="meta-row">
                 <h3>Full Stack Developer Intern</h3>
-                <span style="color: var(--accent-blue)">09/2023 - Present</span>
+                <span class="meta-date">09/2023 - Present</span>
             </div>
-            <p style="color: var(--primary); margin-bottom: 15px;">Cognifyz Technologies</p>
+            <p class="accent" style="margin-bottom: 15px;">Cognifyz Technologies</p>
             <ul>
-                <li>Developed responsive and interactive web applications.</li>
-                <li>Integrated frontend and backend components to deliver seamless user experiences.</li>
+                <li>Built responsive interfaces and reusable UI components.</li>
+                <li>Integrated frontend with backend services to ship end-to-end features.</li>
                 <li>Tech Stack: HTML, CSS, JavaScript.</li>
             </ul>
         </div>
@@ -229,39 +248,39 @@
         <h2><i class="fas fa-project-diagram"></i> Projects</h2>
         <div class="grid">
             <div class="card">
-                <h3 style="color: var(--primary)">Unmasking Misinformation Using AI</h3>
+                <h3 class="accent">Unmasking Misinformation Using AI</h3>
                 <ul>
-                    <li>Designed AI-driven system to identify and analyze fake news.</li>
-                    <li>Applied Machine Learning and NLP techniques for misinformation detection.</li>
-                    <li>Compared accuracy and efficiency of multiple AI-based models.</li>
+                    <li>Developed an AI system to detect and analyze misinformation in news content.</li>
+                    <li>Applied ML and NLP techniques for classification and insight extraction.</li>
+                    <li>Benchmarked multiple models for accuracy and efficiency.</li>
                 </ul>
             </div>
             <div class="card">
-                <h3 style="color: var(--primary)">WildGuard</h3>
+                <h3 class="accent">WildGuard</h3>
                 <ul>
-                    <li>Built ML-powered agriculture safety system with real-time alerts for farmers.</li>
-                    <li>Utilized solar-powered automation with sound/light-based deterrents.</li>
-                    <li>Aimed to reduce crop damage and promote human-wildlife coexistence.</li>
+                    <li>Designed an ML-assisted agriculture safety system with real-time alerts.</li>
+                    <li>Implemented solar-powered automation with sound and light deterrents.</li>
+                    <li>Focused on reducing crop damage and improving farmer safety.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="organizations" data-aos="fade-up">
-        <h2><i class="fas fa-award"></i> Leadership & Awards</h2>
+        <h2><i class="fas fa-award"></i> Leadership & Recognition</h2>
         <div class="grid">
             <div class="card">
                 <h4>Ignitrron Technical Club, KPRIET</h4>
-                <p><strong>Secretary</strong>: Led organization of 10+ campus-wide technical events and engaged 3000+ participants.</p>
+                <p><strong>Secretary</strong>: Led 10+ campus-wide technical events and engaged 3000+ participants.</p>
                 <br>
                 <h4>IEEE Computer Society</h4>
-                <p><strong>Graphic Designer</strong>: Designed promotional posters and visual campaigns for DevSpark '25.</p>
+                <p><strong>Graphic Designer</strong>: Created posters and visual assets for DevSpark '25.</p>
             </div>
             <div class="card">
                 <h4>Achievements</h4>
                 <ul>
-                    <li>Smart India Hackathon: Cleared two rounds of internal hackathon.</li>
-                    <li>KPR Innovcense: Shortlisted among top 25 teams.</li>
+                    <li>Smart India Hackathon: Cleared two internal selection rounds.</li>
+                    <li>KPR Innovcense: Shortlisted among the top 25 teams.</li>
                     <li>Certificate: Practical Cyber Security for Practitioners.</li>
                 </ul>
             </div>
