@@ -59,6 +59,28 @@
             justify-content: center;
         }
 
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            width: min(320px, 70vw);
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid rgba(52, 152, 219, 0.4);
+            box-shadow: 0 20px 40px -25px rgba(2, 12, 27, 0.8);
+            background: var(--light-bg);
+        }
+
         .hero p { color: var(--primary); font-family: monospace; font-size: 1.2rem; }
         .hero h1 { font-size: clamp(40px, 8vw, 80px); color: var(--text-main); margin: 10px 0; }
         .hero .tagline { font-size: clamp(30px, 5vw, 50px); color: var(--accent-blue); font-weight: 600; }
@@ -105,6 +127,17 @@
             margin-right: 10px;
         }
 
+        @media (max-width: 900px) {
+            .hero {
+                height: auto;
+                padding-top: 80px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             h2::after { width: 100px; }
@@ -115,18 +148,25 @@
 
 <div class="container">
     <section class="hero" data-aos="fade-up">
-        <p>Hi, I am</p>
-        <h1>Nivedan KJ</h1>
-        <div class="tagline">Full Stack Developer</div>
-        <p class="bio">
-            Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
-            Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
-        </p>
-        <div class="socials">
-            <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/nivedan-k-j-625719306" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/Nivedan007" target="_blank"><i class="fab fa-github"></i></a>
-            <span style="font-size: 1rem; color: var(--text-dim);">7395863557</span>
+        <div class="hero-content">
+            <div>
+                <p>Hi, I am</p>
+                <h1>Nivedan KJ</h1>
+                <div class="tagline">Full Stack Developer</div>
+                <p class="bio">
+                    Passionate and hardworking Full Stack Developer with strong interest in building end-to-end web applications.
+                    Skilled in frontend and backend technologies with a focus on clean, scalable, and efficient code.
+                </p>
+                <div class="socials">
+                    <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/nivedan-k-j-625719306" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Nivedan007" target="_blank"><i class="fab fa-github"></i></a>
+                    <span style="font-size: 1rem; color: var(--text-dim);">7395863557</span>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img class="hero-photo" src="pic.png" alt="Nivedan KJ portrait">
+            </div>
         </div>
     </section>
 
