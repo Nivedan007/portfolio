@@ -20,6 +20,8 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             background:
                 linear-gradient(180deg, #0a0f1f 0%, #0b1324 45%, #0a1122 100%);
@@ -30,6 +32,86 @@
         }
 
         .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 19, 36, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Merriweather', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
 
         section { padding: 100px 0; border-bottom: 1px solid rgba(52, 152, 219, 0.1); }
 
@@ -167,13 +249,55 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             h2::after { width: 100px; }
+
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 65px;
+                flex-direction: column;
+                background: rgba(11, 19, 36, 0.98);
+                width: 100%;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s;
+                border-top: 1px solid rgba(14, 165, 233, 0.2);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
+<nav>
+    <div class="container">
+        <a href="#home" class="logo">NKJ</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#organizations">Recognition</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
-    <section class="hero" data-aos="fade-up">
+    <section id="home" class="hero" data-aos="fade-up">
         <div class="hero-content">
             <div class="hero-text">
                 <p>Hi, I am</p>
@@ -292,6 +416,43 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Highlight active section in nav
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === '#' + current) {
+                item.classList.add('active');
+            }
+        });
+    });
 </script>
 
 </body>
