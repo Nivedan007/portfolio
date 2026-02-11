@@ -412,6 +412,239 @@
             to { opacity: 1; }
         }
 
+        /* Hero Buttons */
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease-out 1s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .contact-title {
+            text-align: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Source Sans 3', sans-serif;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .contact-icon.email {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .contact-icon.phone {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+        }
+
+        .contact-icon.location {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        }
+
+        .contact-text {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .phone-hidden {
+            display: none;
+        }
+
+        .social-title {
+            text-align: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 60px 0 30px;
+            font-weight: 700;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link.linkedin {
+            background: #0077b5;
+        }
+
+        .social-link.github {
+            background: #333;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
         /* Card Styles */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 
@@ -529,6 +762,24 @@
                 display: none; /* Hide on very small screens for cleaner look */
             }
 
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .contact-info {
+                gap: 30px;
+            }
+
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
             .menu-toggle { display: flex; }
 
             .nav-links {
@@ -569,6 +820,7 @@
             <li><a href="#organizations">Recognition</a></li>
             <li><a href="#certificates">Certificates</a></li>
             <li><a href="#coding-platforms">Coding Platforms</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="menu-toggle">
             <span></span>
@@ -588,6 +840,14 @@
                 <p class="bio">
                     I'm a full stack developer who builds scalable, high performance web applications from front to back. I specialize in turning complex problems into clean, user focused solutions. Driven by innovation, consistency, and a passion for impactful technology.
                 </p>
+                <div class="hero-buttons">
+                    <a href="resume.pdf" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        Reach Me
+                    </a>
+                </div>
                 <div class="socials">
                     <a href="mailto:kjnivedancse@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/nivedan-k-j-625719306" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -750,6 +1010,60 @@
             </div>
         </div>
     </section>
+
+    <section id="contact" data-aos="fade-up">
+        <h2 class="contact-title">Let's Connect</h2>
+        <p class="contact-subtitle">
+            Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+        </p>
+        
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">kjnivedancse@gmail.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon phone" onclick="togglePhone()">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text phone-hidden" id="phoneNumber">+91 7395863557</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon location">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">Coimbatore, Tamil Nadu</div>
+            </div>
+        </div>
+
+        <h3 class="social-title">Connect With Me</h3>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/nivedan-k-j-625719306" target="_blank" class="social-link linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Nivedan007" target="_blank" class="social-link github">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </section>
 </div>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -793,6 +1107,12 @@
             }
         });
     });
+
+    // Toggle phone number visibility
+    function togglePhone() {
+        const phoneNumber = document.getElementById('phoneNumber');
+        phoneNumber.classList.toggle('phone-hidden');
+    }
 </script>
 
 </body>
