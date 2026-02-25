@@ -1028,13 +1028,7 @@
             Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
         </p>
         
-        <form class="contact-form" action="https://formsubmit.co/kjnivedancse@gmail.com" method="POST">
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://nivedan007.github.io/portfolio/#contact">
-            
+        <form class="contact-form" id="contactForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -1088,6 +1082,7 @@
     AOS.init({ duration: 1000, once: true });
 
     const categoryMenu = document.getElementById('categoryMenu');
+    const contactForm = document.getElementById('contactForm');
 
     categoryMenu.addEventListener('change', (event) => {
         const sectionId = event.target.value;
@@ -1113,6 +1108,22 @@
         if (current && categoryMenu.value !== current) {
             categoryMenu.value = current;
         }
+    });
+
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const subject = encodeURIComponent(`Portfolio Contact: ${name}`);
+        const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+
+        window.location.href = `mailto:kjnivedancse@gmail.com?subject=${subject}&body=${body}`;
+        contactForm.reset();
     });
 
     // Toggle phone number visibility
