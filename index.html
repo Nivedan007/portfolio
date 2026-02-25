@@ -92,6 +92,32 @@
             list-style: none;
         }
 
+        .nav-links li {
+            padding-left: 0;
+        }
+
+        .nav-links li::before {
+            content: none;
+        }
+
+        .category-menu {
+            background: var(--bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.55rem 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            min-width: 220px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .category-menu:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+        }
+
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
@@ -781,28 +807,13 @@
                 font-size: 1.5rem;
             }
 
-            .menu-toggle { display: flex; }
-
             .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 65px;
-                flex-direction: column;
-                background: rgba(255, 255, 255, 0.98);
-                width: 100%;
-                padding: 2rem;
-                gap: 1.5rem;
-                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-top: 1px solid var(--border);
-                box-shadow: 0 10px 30px var(--shadow);
+                gap: 0;
             }
 
-            .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
+            .category-menu {
+                min-width: 170px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -813,21 +824,20 @@
     <div class="container">
         <a href="#home" class="logo">Portfolio</a>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#organizations">Recognition</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#coding-platforms">Coding Platforms</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>
+                <select id="categoryMenu" class="category-menu" aria-label="Navigate categories">
+                    <option value="home">Home</option>
+                    <option value="education">Education</option>
+                    <option value="skills">Skills</option>
+                    <option value="experience">Experience</option>
+                    <option value="projects">Projects</option>
+                    <option value="organizations">Recognition</option>
+                    <option value="certificates">Certificates</option>
+                    <option value="coding-platforms">Coding Platforms</option>
+                    <option value="contact">Contact</option>
+                </select>
+            </li>
         </ul>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </div>
 </nav>
 
@@ -1077,25 +1087,18 @@
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+    const categoryMenu = document.getElementById('categoryMenu');
+
+    categoryMenu.addEventListener('change', (event) => {
+        const sectionId = event.target.value;
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-
-    // Highlight active section in nav
     const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links a');
 
     window.addEventListener('scroll', () => {
         let current = '';
@@ -1107,12 +1110,9 @@
             }
         });
 
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === '#' + current) {
-                item.classList.add('active');
-            }
-        });
+        if (current && categoryMenu.value !== current) {
+            categoryMenu.value = current;
+        }
     });
 
     // Toggle phone number visibility
